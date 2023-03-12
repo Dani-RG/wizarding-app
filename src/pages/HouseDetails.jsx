@@ -16,6 +16,7 @@ export default function HouseDetails() {
         setHouse(response.data);
         if (!response) {
           setError(true);
+          console.error(error);
         }
     })
   }
@@ -43,3 +44,5 @@ export default function HouseDetails() {
     </div>
   )
 }
+
+{/* La razón de utilizar el house.traits && house.tra... es que en el renderizado inicial, house esta vacio, porque aún no ha recibido los datos para cuando renderizó, pero luego los recibe y renderiza una vez, solo al inicio con el useEffect y ahí ya tiene los datos. Por esta razón está el primer house.traits && porque es una condicionante que frena el metodo map diciendole "cuando house.traits sea cierto, has un map de esto" es decir, cuando sea true porque ya tiene información definida */}
